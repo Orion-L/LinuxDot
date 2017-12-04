@@ -62,7 +62,7 @@ set si
 
 set tags+=tags;~
 
-colo moody
+colo moody_new
 
 autocmd FileType tex setlocal spell spelllang=en_us
 filetype plugin indent on
