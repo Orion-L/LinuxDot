@@ -175,8 +175,10 @@ exec --no-startup-id i3-sensible-terminal
 exec --no-startup-id compton
 exec --no-startup-id xautolock -time 5 -locker "i3lock -n -i ~/.config/i3/background.png" -killtime 10 -killer "systemctl suspend" -detectsleep
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec "~/.config/i3/backlight.sh inc"
+bindsym XF86MonBrightnessDown exec "~/.config/i3/backlight.sh dec"
 
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
