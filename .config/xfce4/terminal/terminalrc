@@ -23,8 +23,10 @@ MiscDefaultWorkingDir=
 MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
-FontName=Inconsolata 12
+FontName=Inconsolata 14
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 BackgroundDarkness=0.800000
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+MiscShowRelaunchDialog=TRUE
+MiscNewTabAdjacent=FALSE
 
