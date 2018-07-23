@@ -154,7 +154,7 @@ bindsym $mod+r mode "resize"
 bar {
         i3bar_command i3bar 
         colors {
-            background #000000
+            background #111111
             statusline #b9b9b9
             separator #666666
 
@@ -171,8 +171,8 @@ bar {
 exec --no-startup-id feh --bg-fill ~/.config/i3/background.png
 exec --no-startup-id volumeicon
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-sensible-terminal
-exec --no-startup-id compton
+#exec --no-startup-id i3-sensible-terminal
+#exec --no-startup-id compton
 exec --no-startup-id xautolock -time 5 -locker "i3lock -n -i ~/.config/i3/background.png" -killtime 10 -killer "systemctl suspend" -detectsleep
 
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20
