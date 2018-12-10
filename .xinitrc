@@ -38,7 +38,10 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-#exec xss-lock -- i3lock -n -i ~/.config/i3/background.png &
-#exec i3
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
-exec openbox
+exec xss-lock -- i3lock -n -i ~/.config/i3/background.png &
+exec i3
+
+#exec openbox-session

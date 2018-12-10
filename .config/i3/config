@@ -152,7 +152,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        i3bar_command i3bar 
+        i3bar_command i3bar -t
         colors {
             background #111111
             statusline #b9b9b9
@@ -177,12 +177,14 @@ exec --no-startup-id xautolock -time 5 -locker "i3lock -n -i ~/.config/i3/backgr
 
 # bindsym XF86MonBrightnessUp exec xbacklight -inc 20
 # bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym XF86MonBrightnessUp exec "~/.config/i3/backlight.sh inc"
-bindsym XF86MonBrightnessDown exec "~/.config/i3/backlight.sh dec"
+# bindsym XF86MonBrightnessUp exec "~/.config/i3/backlight.sh inc"
+# bindsym XF86MonBrightnessDown exec "~/.config/i3/backlight.sh dec"
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
 
 for_window [class="^.*"] border pixel 3
 
