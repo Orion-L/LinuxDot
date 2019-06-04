@@ -1,0 +1,13 @@
+LinuxDot
+.Xauthority
+.bash_history
+.bash_logout
+.cache
+.local
+.mozilla
+.ssh
+.viminfo
+.gitconfig
+.config/dconf
+.fehbg
+.config/xfce4/help.rc
