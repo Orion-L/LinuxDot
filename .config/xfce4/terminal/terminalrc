@@ -1,4 +1,5 @@
 [Configuration]
+FontName=Inconsolata 14
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
@@ -7,8 +8,8 @@ MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
-MiscMenubarDefault=FALSE
-MiscMouseAutohide=TRUE
+MiscMenubarDefault=TRUE
+MiscMouseAutohide=FALSE
 MiscMouseWheelZoom=TRUE
 MiscToolbarDefault=FALSE
 MiscConfirmClose=TRUE
@@ -19,14 +20,9 @@ MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscMiddleClickOpensUri=FALSE
 MiscCopyOnSelect=FALSE
-MiscDefaultWorkingDir=
+MiscShowRelaunchDialog=TRUE
 MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
-FontName=Inconsolata 14
-ScrollingBar=TERMINAL_SCROLLBAR_NONE
-BackgroundDarkness=0.800000
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-MiscShowRelaunchDialog=TRUE
 MiscNewTabAdjacent=FALSE
 
