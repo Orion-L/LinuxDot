@@ -16,3 +16,8 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+
+VBoxClient-all &
+xsetroot -cursor_name left_ptr
+$HOME/.config/polybar/launch.sh
+feh --bg-center ~/.config/bspwm/background.jpg
