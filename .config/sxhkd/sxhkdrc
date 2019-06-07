@@ -1,3 +1,12 @@
+super + ctrl + p
+    shutdown now
+
+super + ctrl + r
+    reboot
+
+super + ctrl + s
+    systemctl suspend
+
 #
 # wm independent hotkeys
 #
@@ -119,3 +128,18 @@ super + alt + shift + {Left,Down,Up,Right}
 # move a floating window
 super + {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+XF86AudioRaiseVolume
+    amixer -q sset Master,0 1%+ unmute
+
+XF86AudioLowerVolume
+    amixer -q sset Master,0 1%- unmute
+
+XF86AudioMute
+    amixer -q sset Master,0 toggle
+
+XF86MonBrightnessUp
+    light -A 5
+
+XF86MonBrightnessDown
+    light -U 5
