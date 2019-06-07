@@ -31,5 +31,4 @@ else
     start_agent;
 fi
 
-fortune | cowsay
 alias config='/usr/bin/git --git-dir=/$HOME/LinuxDot/ --work-tree=$HOME'
