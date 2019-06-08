@@ -1,0 +1,26 @@
+diff -ar -U 1 --unidirectional-new-file base/.config/bspwm/bspwmrc laptop/.config/bspwm/bspwmrc
+--- base/.config/bspwm/bspwmrc	2019-06-08 23:30:29.485128204 +1000
++++ laptop/.config/bspwm/bspwmrc	2019-06-08 23:36:43.721796427 +1000
+@@ -24,2 +24 @@
+ 
+-### vbox ###
+diff -ar -U 1 --unidirectional-new-file base/.config/sxhkd/sxhkdrc laptop/.config/sxhkd/sxhkdrc
+--- base/.config/sxhkd/sxhkdrc	2019-06-08 23:17:56.298458360 +1000
++++ laptop/.config/sxhkd/sxhkdrc	2019-06-08 23:37:18.188463239 +1000
+@@ -131,2 +131,15 @@
+ 
+-### laptop keys ###
++XF86AudioRaiseVolume
++    amixer -q sset Master,0 1%+ unmute
++
++XF86AudioLowerVolume
++    amixer -q sset Master,0 1%- unmute
++
++XF86AudioMute
++    amixer -q sset Master,0 toggle
++
++XF86MonBrightnessUp
++    light -A 5
++
++XF86MonBrightnessDown
++    light -U 5

@@ -1,0 +1,13 @@
+diff -ar -U 1 --unidirectional-new-file base/.config/bspwm/bspwmrc vm/.config/bspwm/bspwmrc
+--- base/.config/bspwm/bspwmrc	2019-06-08 23:30:29.485128204 +1000
++++ vm/.config/bspwm/bspwmrc	2019-06-08 23:38:05.711796768 +1000
+@@ -24,2 +24,2 @@
+ 
+-### vbox ###
++VBoxClient-all &
+diff -ar -U 1 --unidirectional-new-file base/.config/sxhkd/sxhkdrc vm/.config/sxhkd/sxhkdrc
+--- base/.config/sxhkd/sxhkdrc	2019-06-08 23:17:56.298458360 +1000
++++ vm/.config/sxhkd/sxhkdrc	2019-06-08 23:38:21.088463499 +1000
+@@ -131,2 +131 @@
+ 
+-### laptop keys ###
