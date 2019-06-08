@@ -1,0 +1,10 @@
+diff -aur base/.config/bspwm/bspwmrc polybar/.config/bspwm/bspwmrc
+--- base/.config/bspwm/bspwmrc	2019-06-08 15:15:46.398792095 +1000
++++ polybar/.config/bspwm/bspwmrc	2019-06-08 15:25:03.385461125 +1000
+@@ -19,4 +19,4 @@
+ 
+ xsetroot -cursor_name left_ptr
+ feh --bg-center ~/.config/background.png
+-### status bar ###
++$HOME/.config/polybar/launch.sh
+Only in base/.config: sxhkd

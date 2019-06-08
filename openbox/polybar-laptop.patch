@@ -1,0 +1,13 @@
+diff -aur base/.config/openbox/autostart polybar-laptop/.config/openbox/autostart
+--- base/.config/openbox/autostart	2019-06-08 16:07:27.235471860 +1000
++++ polybar-laptop/.config/openbox/autostart	2019-06-08 16:07:44.002138595 +1000
+@@ -16,4 +16,5 @@
+ #
+ #xfce-mcs-manager &
+ 
+-### execs ###
++nm-applet
++polybar openboxbar
+Only in base/.config/openbox: environment
+Only in base/.config/openbox: menu.xml
+Only in base/.config/openbox: rc.xml

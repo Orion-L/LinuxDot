@@ -168,23 +168,11 @@ bar {
 }
 
 # Set background
-exec --no-startup-id feh --bg-center ~/.config/i3/background.png
-exec --no-startup-id volumeicon
-exec --no-startup-id nm-applet
-#exec --no-startup-id i3-sensible-terminal
-#exec --no-startup-id compton
-exec --no-startup-id xautolock -time 5 -locker "i3lock -n -i ~/.config/i3/background.png" -killtime 10 -killer "systemctl suspend" -detectsleep
+exec --no-startup-id feh --bg-center ~/.config/background.png
 
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-# bindsym XF86MonBrightnessUp exec "~/.config/i3/backlight.sh inc"
-# bindsym XF86MonBrightnessDown exec "~/.config/i3/backlight.sh dec"
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+### execs ###
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
+### bindings ###
 
 for_window [class="^.*"] border pixel 3
 
@@ -238,10 +226,9 @@ bindsym $mod+Shift+Return      mode $sysmenu
 mode $sysmenu {
     bindsym p         exec shutdown -P now
     bindsym b         exec shutdown -r now
-    bindsym l         exec i3lock -n -i ~/.config/i3/background.png , mode "default"
+    bindsym l         exec i3lock -n -i ~/.config/background.png , mode "default"
     bindsym t         exec --no-startup-id i3-msg exit, mode "default"
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
 
-bindsym XF86Display exec ~/.config/i3/monitor.sh

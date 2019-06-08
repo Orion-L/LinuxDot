@@ -18,5 +18,5 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 xsetroot -cursor_name left_ptr
-$HOME/.config/polybar/launch.sh
-feh --bg-center ~/.config/bspwm/background.png
+feh --bg-center ~/.config/background.png
+### status bar ###

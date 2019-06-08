@@ -30,5 +30,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
-
-alias config='/usr/bin/git --git-dir=/$HOME/LinuxDot/ --work-tree=$HOME'
