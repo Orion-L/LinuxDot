@@ -1,0 +1,15 @@
+Only in base: .bash_profile
+Only in base: .bashrc
+diff -aur --unidirectional-new-file base/.config/compton/compton.conf compton/base/.config/compton/compton.conf
+--- base/.config/compton/compton.conf	1970-01-01 10:00:00.000000000 +1000
++++ compton/base/.config/compton/compton.conf	2019-06-08 14:10:44.676110600 +1000
+@@ -0,0 +1,4 @@
++opacity-rule = ["95:class_g = 'Termite'",
++                "80:class_g = 'i3bar'",
++                "60:class_g = 'vim'",
++                "20:class_g = 'xfce4-terminal'"];
+Only in base/.config: monitor.sh
+Only in base: .vim
+Only in base: .vimrc
+Only in base: .xinitrc
+Only in base: .xserverrc

@@ -1,0 +1,13 @@
+Only in base: .bash_profile
+Only in base: .bashrc
+Only in base: .config
+diff -aur --unidirectional-new-file base/.gdbinit gdb/base/.gdbinit
+--- base/.gdbinit	1970-01-01 10:00:00.000000000 +1000
++++ gdb/base/.gdbinit	2019-06-08 14:10:44.682780600 +1000
+@@ -0,0 +1,2 @@
++source /usr/share/pwndbg/gdbinit.py
++set disassembly-flavor intel
+Only in base: .vim
+Only in base: .vimrc
+Only in base: .xinitrc
+Only in base: .xserverrc

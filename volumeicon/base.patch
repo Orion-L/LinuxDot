@@ -1,0 +1,37 @@
+Only in base: .bash_profile
+Only in base: .bashrc
+Only in base/.config: monitor.sh
+diff -aur --unidirectional-new-file base/.config/volumeicon/volumeicon volumeicon/base/.config/volumeicon/volumeicon
+--- base/.config/volumeicon/volumeicon	1970-01-01 10:00:00.000000000 +1000
++++ volumeicon/base/.config/volumeicon/volumeicon	2019-06-08 14:10:44.682780600 +1000
+@@ -0,0 +1,26 @@
++[Alsa]
++card=HD-Audio Generic
++channel=Master
++
++[Notification]
++show_notification=true
++notification_type=0
++
++[StatusIcon]
++stepsize=5
++onclick=xfce4-terminal -e 'alsamixer'
++theme=Default
++use_panel_specific_icons=false
++lmb_slider=false
++mmb_mute=false
++use_horizontal_slider=false
++show_sound_level=false
++use_transparent_background=false
++
++[Hotkeys]
++up_enabled=false
++down_enabled=false
++mute_enabled=false
++up=XF86AudioRaiseVolume
++down=XF86AudioLowerVolume
++mute=XF86AudioMute
+Only in base: .vim
+Only in base: .vimrc
+Only in base: .xinitrc
+Only in base: .xserverrc
