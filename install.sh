@@ -33,6 +33,23 @@ function print_packages() {
     done <<< "$PKGS"
 }
 
+function setup_base() {
+    DIR="$1"
+    cd "$DIR"
+    shopt -s dotglob globstar
+    for FILENAME in **; do
+        [ -f "$FILENAME" ] || continue
+        FDIR="$(dirname "$FILENAME")"
+        if [ -e "$HOME/$FILENAME" ]; then
+            mkdir -p "$HOME/$BACKUP_DIR/$FDIR"; cp "$HOME/$FILENAME" $_
+        fi
+
+        mkdir -p "$HOME/$FDIR"; cp "$FILENAME" $_
+    done
+    shopt -u dotglob globstar
+    cd "$HOME"
+}
+
 function main() {
     SCRIPT_DIR="$1"
     PACKAGE="$2"
@@ -53,17 +70,12 @@ function main() {
     mkdir "$BACKUP_DIR"
 
     if [ "$PACKAGE" == "$BASE" ]; then
-        # create diff of base config layout
-        diff -aur --unidirectional-new-file "$HOME" "$SCRIPT_DIR/$BASE" > "$SCRIPT_DIR/$BASE.patch"
-
-        # patch base config
-        patch -b -B "$BACKUP_DIR/" -r - -i "$SCRIPT_DIR/$BASE.patch"
-        rm "$SCRIPT_DIR/$BASE.patch"
+        setup_base "$SCRIPT_DIR/$BASE"
     else
-        patch -p1 -b -B "$BACKUP_DIR/" -i "$SCRIPT_DIR/$PACKAGE/$BASE.patch"
+        setup_base "$SCRIPT_DIR/$PACKAGE/$BASE"
         for FILENAME in "$SCRIPT_DIR/$PACKAGE"/*; do
+            [ -f "$FILENAME" ] || continue
             FBASE="$(basename "$FILENAME")"
-            [ "$FBASE" != "$BASE.patch" ] || continue
 
             echo "package has option $FBASE, install? [y/N]"
             while read LINE; do
