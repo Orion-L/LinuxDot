@@ -1,0 +1,36 @@
+diff -aur base/.config/i3/config laptop/.config/i3/config
+--- base/.config/i3/config	2019-06-08 15:57:46.275469435 +1000
++++ laptop/.config/i3/config	2019-06-08 15:57:19.722135981 +1000
+@@ -170,9 +170,16 @@
+ # Set background
+ exec --no-startup-id feh --bg-center ~/.config/background.png
+ 
+-### execs ###
++exec --no-startup-id volumeicon
++exec --no-startup-id nm-applet
++exec --no-startup-id xautolock -time 5 -locker "i3lock -n -i ~/.config/i3/background.png" -killtime 10 -killer "systemctl suspend" -detectsleep
+ 
+-### bindings ###
++bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 
++bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
++bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master,0 1+ unmute"
++bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master,0 1- unmute"
++bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master,0 toggle"
++bindsym XF86Display exec ~/.config/monitor.sh
+ 
+ for_window [class="^.*"] border pixel 3
+ 
+diff -aur base/.config/i3/i3status.conf laptop/.config/i3/i3status.conf
+--- base/.config/i3/i3status.conf	2019-06-08 16:01:51.798803786 +1000
++++ laptop/.config/i3/i3status.conf	2019-06-08 16:02:11.068803865 +1000
+@@ -12,8 +12,8 @@
+ }
+ 
+ order += "disk /"
+-### disk ###
+-### bat ###
++order += "disk /home"
++order += "battery 0"
+ order += "tztime local"
+ 
+ battery 0 {

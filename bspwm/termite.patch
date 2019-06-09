@@ -1,0 +1,13 @@
+Only in base/.config: bspwm
+diff -aur base/.config/sxhkd/sxhkdrc termite/.config/sxhkd/sxhkdrc
+--- base/.config/sxhkd/sxhkdrc	2019-06-08 15:12:11.768791187 +1000
++++ termite/.config/sxhkd/sxhkdrc	2019-06-08 15:42:20.948798813 +1000
+@@ -13,7 +13,7 @@
+ 
+ # terminal emulator
+ super + Return
+-	### terminal ###
++    termite
+ 
+ # program launcher
+ super + d

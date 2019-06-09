@@ -1,0 +1,376 @@
+Only in base: .bash_profile
+Only in base: .bashrc
+Only in base/.config: monitor.sh
+diff -aur --unidirectional-new-file base/.config/polybar/config polybar/base/.config/polybar/config
+--- base/.config/polybar/config	1970-01-01 10:00:00.000000000 +1000
++++ polybar/base/.config/polybar/config	2019-06-08 14:10:44.682780600 +1000
+@@ -0,0 +1,356 @@
++;==========================================================
++;
++;
++;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
++;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
++;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
++;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
++;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
++;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
++;
++;
++;   To learn more about how to configure Polybar
++;   go to https://github.com/jaagr/polybar
++;
++;   The README contains alot of information
++;
++;==========================================================
++
++[colors]
++background = #151718
++foreground = #d6d6d6
++
++urgent = #cd3f45
++highlight = #e6cd69
++highlight2 = #9fca56
++inactive = #6d6d6d
++
++[bar/openboxbar]
++;monitor = ${env:MONITOR:HDMI-1}
++width = 100%
++height = 27
++;offset-x = 1%
++;offset-y = 1%
++radius = 0
++fixed-center = false
++
++background = ${colors.background}
++foreground = ${colors.foreground}
++
++line-size = 3
++line-color = #f00
++
++border-size = 4
++border-color = #00000000
++
++padding-left = 0
++padding-right = 2
++
++module-margin-left = 1
++module-margin-right = 2
++
++;font-0 = fixed:pixelsize=10;1
++;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
++font-0 = Unifont:pixelsize=12;1
++font-1 = Siji:pixelsize=200;1
++
++modules-left = xwindow
++modules-center = 
++modules-right = filesystem battery date alsa powermenu
++
++tray-position = right
++tray-padding = 2
++;tray-transparent = true
++;tray-background = #0063ff
++
++;wm-restack = bspwm
++;wm-restack = i3
++
++;override-redirect = true
++
++;scroll-up = bspwm-desknext
++;scroll-down = bspwm-deskprev
++
++;scroll-up = i3wm-wsnext
++;scroll-down = i3wm-wsprev
++
++cursor-click = pointer
++cursor-scroll = ns-resize
++
++[bar/bspwmvmbar]
++monitor = VGA-1
++
++width = 100%
++height = 27
++radius = 0
++#offset-x = 1%
++fixed-center = false
++
++background = ${colors.background}
++foreground = ${colors.foreground}
++
++line-size = 3
++line-color = #f00
++
++#border-size = 4
++#border-color = #00000000
++
++padding-left = 1
++padding-right = 2
++
++module-margin-left = 1
++module-margin-right = 1
++
++font-0 = Inconsolata:pixelsize=12;1
++font-1 = FontAwesome:pixelsize=12;1
++
++modules-left = bspwm
++modules-center = cpu memory wired-network filesystem
++modules-right = date powermenu
++
++separator = |
++
++tray-position = right
++tray-padding = 1
++tray-maxsize = 2000
++
++wm-restack = bspwm
++
++cursor-click = pointer
++cursor-scroll = ns-resize
++
++[bar/bspwmdellbar]
++monitor = eDP
++
++width = 100%
++height = 27
++radius = 0
++#offset-x = 1%
++fixed-center = true
++
++background = ${colors.background}
++foreground = ${colors.foreground}
++
++line-size = 3
++line-color = #f00
++
++#border-size = 4
++#border-color = #00000000
++
++padding-left = 1
++padding-right = 1
++
++module-margin-left = 1
++module-margin-right = 1
++
++font-0 = Inconsolata:pixelsize=12;1
++font-1 = FontAwesome:pixelsize=12;1
++
++modules-left = bspwm
++modules-center = cpu memory filesystem
++modules-right = backlight alsa wifi-status battery date powermenu
++
++separator = |
++
++tray-position = right
++tray-padding = 0
++tray-maxsize = 20
++
++wm-restack = bspwm
++
++cursor-click = pointer
++cursor-scroll = ns-resize
++
++[module/bspwm]
++type = internal/bspwm
++
++pin-workspaces = true
++inline-mode = false
++enable-click = true
++enable-scroll = false
++reverse-scroll = false
++fuzzy-match = true
++
++label-focused = %name%
++label-focused-foreground = ${colors.foreground}
++#label-focused-background = #3f3f3f
++label-focused-underline = ${colors.highlight}
++
++label-occupied = %name%
++label-occupied-foreground = ${colors.inactive}
++label-occupied-underline = ${colors.inactive}
++
++label-urgent = %name%
++label-urgent-foreground = ${colors.urgent}
++#label-urgent-background = ${colors.urgent}
++label-urgent-underline = ${colors.highlight}
++
++label-empty = %name%
++label-empty-foreground = ${colors.inactive}
++
++label-separator = " "
++label-separator-padding = 0
++
++[module/cpu]
++type = internal/cpu
++interval = 1
++format = <label>
++label = %{F#e6cd69}CPU: %{F-}%percentage%%
++
++[module/memory]
++type = internal/memory
++interval = 1
++format = <label>
++label  = %{F#e6cd69}RAM: %{F-}%percentage_used%%
++
++[module/wired-network]
++type = internal/network
++interface = enp0s3
++interval = 1
++format-connected = <label-connected>
++format-disconnected = <label-disconnected>
++
++label-connected = %{F#9fca56} %{F-}%downspeed% %{F#cd3f45} %{F-}%upspeed%
++label-connected-foreground = ${colors.foreground}
++
++label-disconnected = eth down
++label-disconnected-foreground = ${colors.urgent}
++
++[module/wifi-network]
++type = internal/network
++interface = wlp1s0 
++interval = 1
++format-connected = <label-connected>
++format-disconnected = <label-disconnected>
++
++label-connected = %{F#9fca56} %{F-}%downspeed% %{F#cd3f45} %{F-}%upspeed%
++label-connected-foreground = ${colors.foreground}
++
++label-disconnected = wifi down
++label-disconnected-foreground = ${colors.urgent}
++
++[module/wifi-status]
++type = internal/network
++interface = wlp1s0
++interval = 5
++
++format-connected = %{A1:termite -e nmtui:}<label-connected>%{A}
++format-disconnected = %{A1:termite -e nmtui:}<label-disconnected>%{A}
++
++label-connected = %{F#9fca56} %{F-}%downspeed%
++label-connected-foreground = ${colors.foreground}
++
++label-disconnected =  wifi down
++label-disconnected-foreground = ${colors.urgent}
++
++[module/xwindow]
++type = internal/xwindow
++label = %title:0:30:...%
++
++[module/filesystem]
++type = internal/fs
++interval = 25
++
++mount-0 = /
++mount-1 = /home
++
++label-mounted = %{F#55d5db}%mountpoint%%{F-}: %free%
++label-unmounted =
++
++[module/date]
++type = internal/date
++interval = 5
++
++time = %H:%M
++date = %d/%m/%y
++label = %time% %date%
++
++[module/alsa]
++type = internal/alsa
++mapped = true
++interval = 1
++
++master-mixer = Master
++
++format-volume = <ramp-volume> <label-volume>
++format_muted = <label-muted>
++
++label-volume = %percentage%%
++
++ramp-volume-0 = 
++ramp-volume-1 = 
++ramp-volume-2 = 
++
++label-muted = 
++label-muted-foreground = ${colors.urgent}
++
++[module/backlight]
++type = internal/backlight
++card = amdgpu_bl0
++
++format = <ramp> <label>
++label = %percentage%%
++
++ramp-0 = 
++ramp-1 = 
++ramp-2 = 
++
++[module/battery]
++type = internal/battery
++battery = BAT0
++adapter = AC
++full-at = 98
++time-format = %H:%M
++
++format-charging = <label-charging>
++format-discharging = <ramp-capacity> <label-discharging>
++format-full = <ramp-capacity> <label-full>
++
++label-charging = %{F#9fca56} %{F-}%percentage%%
++label-discharging = %percentage%%
++label-full = %percentage%%
++
++ramp-capacity-0 = 
++ramp-capacity-0-foreground = ${colors.urgent}
++ramp-capacity-1 = 
++ramp-capacity-1-foreground = ${colors.highlight}
++ramp-capacity-2 = 
++ramp-capacity-2-foreground = ${colors.highlight}
++ramp-capacity-3 = 
++ramp-capacity-3-foreground = ${colors.highlight2}
++ramp-capacity-4 = 
++ramp-capacity-4-foreground = ${colors.highlight2}
++
++[module/powermenu]
++type = custom/menu
++
++expand-right = true
++
++format-spacing = 1
++
++label-open = 
++label-open-foreground = ${colors.urgent}
++label-close = 
++label-close-foreground = ${colors.urgent}
++label-separator = |
++label-separator-foreground = ${colors.inactive}
++
++menu-0-0 = suspend
++menu-0-0-exec = systemctl suspend
++menu-0-1 = reboot
++menu-0-1-exec = reboot
++menu-0-2 = power off
++menu-0-2-exec = shutdown now
++
++[settings]
++screenchange-reload = true
++;compositing-background = xor
++;compositing-background = screen
++;compositing-foreground = source
++;compositing-border = over
++
++[global/wm]
++margin-top = 5
++margin-bottom = 5
++
++; vim:ft=dosini
+diff -aur --unidirectional-new-file base/.config/polybar/launch.sh polybar/base/.config/polybar/launch.sh
+--- base/.config/polybar/launch.sh	1970-01-01 10:00:00.000000000 +1000
++++ polybar/base/.config/polybar/launch.sh	2019-06-08 16:13:28.705473362 +1000
+@@ -0,0 +1,5 @@
++#!/bin/bash
++
++killall -q polybar
++while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
++polybar ### bar ### &
+Only in base: .vim
+Only in base: .vimrc
+Only in base: .xinitrc
+Only in base: .xserverrc
