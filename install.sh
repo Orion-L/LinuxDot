@@ -6,6 +6,7 @@
 BACKUP_DIR="dot_backup"
 BASE="base"
 
+# get list of available packages
 function packages() {
     SCRIPT_DIR="$1"
 
@@ -25,6 +26,7 @@ function packages() {
     done
 }
 
+# print packages to stdout
 function print_packages() {
     echo "packages: "
     PKGS="$(packages "$(dirname "$(realpath "$0")")")"
@@ -33,6 +35,7 @@ function print_packages() {
     done <<< "$PKGS"
 }
 
+# copy package base directory, backup if necessary
 function setup_base() {
     DIR="$1"
     cd "$DIR"
@@ -54,6 +57,7 @@ function main() {
     SCRIPT_DIR="$1"
     PACKAGE="$2"
 
+    # check if package valid
     if ! [ -d "$SCRIPT_DIR/$PACKAGE" ]; then
         echo "invalid package"
         print_packages
@@ -73,6 +77,8 @@ function main() {
         setup_base "$SCRIPT_DIR/$BASE"
     else
         setup_base "$SCRIPT_DIR/$PACKAGE/$BASE"
+
+        # loop through package patches
         for FILENAME in "$SCRIPT_DIR/$PACKAGE"/*; do
             [ -f "$FILENAME" ] || continue
             FBASE="$(basename "$FILENAME")"
@@ -80,6 +86,7 @@ function main() {
             echo "package has option $FBASE, install? [y/N]"
             while read LINE; do
                 [ "$LINE" == "y" ] || [ "$LINE" == "Y" ] || break
+                # apply patch
                 patch -p1 -b -B "$BACKUP_DIR/" -r - -i "$SCRIPT_DIR/$PACKAGE/$FBASE"
                 break
             done
