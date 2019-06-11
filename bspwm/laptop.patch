@@ -5,7 +5,7 @@ diff -ar -U 1 --unidirectional-new-file base/.config/bspwm/bspwmrc laptop/.confi
  
 -
 -### vbox ###
-+xautolock -time 5 -locker "i3lock -n -i ~/.config/background.png" -killtime 10 -killer "systemctl suspend" -detectsleep &
++xautolock -time 10 -locker "systemctl suspend" -detectsleep &
 diff -ar -U 1 --unidirectional-new-file base/.config/sxhkd/sxhkdrc laptop/.config/sxhkd/sxhkdrc
 --- base/.config/sxhkd/sxhkdrc	2019-06-09 15:14:52.669272038 +1000
 +++ laptop/.config/sxhkd/sxhkdrc	2019-06-11 17:37:28.421864576 +1000
