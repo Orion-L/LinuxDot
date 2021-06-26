@@ -1,0 +1,82 @@
+{
+    "height": 25,
+
+    "modules-left": ["cpu", "memory", "temperature", "disk", "disk#disk2"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["sway/mode", "idle_inhibitor", "pulseaudio", "backlight", "network", "battery", "clock", "tray"],
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "<span font=\"MaterialIcon 14\"></span>",
+            "deactivated": "<span font=\"MaterialIcon 14\"></span>"
+        }
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+	      "format": "{:%H:%M %d/%m/%y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+    },
+    "cpu": {
+        "format": " {usage}%"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "disk": {
+        "format": "{path} {free}",
+        "path": "/"
+    },
+    "disk#disk2": {
+        "format": "{path} {free}",
+        "path": "/home"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format-critical": " {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", "", "", ""],
+	      "tooltip": false
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [""]
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": " {signalStrength}%",
+        "format-ethernet": "",
+        "format-linked": "",
+        "format-disconnected": "",
+	      "tooltip-format-wifi": "{essid} {ipaddr}/{cidr}",
+	      "on-click": "swaymsg exec '$term -e nmtui'"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pulsemixer --toggle-mute",
+	      "on-click-right": "pavucontrol"
+    }
+}
