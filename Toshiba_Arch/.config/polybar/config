@@ -1,0 +1,207 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #DC0E1E38
+foreground = #E5EAED
+foreground-alt = #A0A3A5
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+active-color = #7CA0CC
+urgent-color = #e53935
+occupied-color = #707375
+
+[bar/satellite_bar]
+width = 100%
+height = 20
+fixed-center = false
+line-size = 2
+
+monitor = ${env:MONITOR:}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 3
+border-color = ${colors.background}
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Source Code Pro:pixelsize=10;2
+font-1 = Material Icons:pixelsize=13;4
+
+cursor-click = pointer
+enable-ipc = true
+
+modules-left = menu workspaces term files browser
+modules-right = backlight volume wifi-network battery date powermenu
+
+[module/menu]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${colors.active-color}
+content-foreground = ${colors.foreground}
+click-left = $HOME/.config/polybar/scripts/menu.sh
+
+[module/workspaces]
+type = internal/xworkspaces
+pin-workspaces = false
+enable-click = true
+enable-scroll = true
+format-padding = 0
+
+icon-0 = desktop 1;
+icon-1 = desktop 2;
+icon-2 = desktop 3;
+icon-3 = desktop 4;
+icon-default = ?
+
+format = <label-state>
+label-active = %icon%
+label-occupied = %icon%
+label-urgent = %icon%
+label-empty = %icon%
+
+label-occupied-padding = 2
+label-empty-padding = 2
+label-urgent-padding = 2
+label-active-padding = 2
+
+label-active-foreground = ${colors.active-color}
+label-urgent-foreground = ${colors.urgent-color}
+label-empty-foreground = ${colors.foreground}
+label-occupied-foreground = ${colors.occupied-color}
+
+label-active-underline = ${colors.active-color}
+label-urgent-underline = ${colors.urgent-color}
+label-occupied-underline = ${colors.occupied-color}
+
+[module/term]
+type = custom/text
+content = 
+content-foreground = ${colors.foreground-alt}
+click-left = termite &
+
+[module/files]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = ${colors.foreground-alt}
+click-left = nautilus &
+
+[module/browser]
+type = custom/text
+content = 
+content-padding = 1
+content-foreground = ${colors.foreground-alt}
+click-left = firefox &
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <label>
+label = %percentage%%
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+
+[module/volume]
+type = internal/pulseaudio
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+;format-muted-prefix = " "
+label-muted = 
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+ramp-volume-6 = 
+
+click-right = pavucontrol
+
+[module/wifi-network]
+type = internal/network
+interface = wlp9s0
+interval = 30
+
+format-connected = %{A1:termite -e nmtui:}<label-connected>%{A}
+format-disconnected = %{A1:termite -e nmtui:}<label-disconnected>%{A}
+
+label-connected = 
+label-connected-foreground = ${colors.foreground}
+
+label-disconnected =  
+label-disconnected-foreground = ${colors.urgent-color}
+
+[module/battery]
+type = internal/battery
+full-at = 99
+time-format = %H:%M
+battery = BAT0
+adapter = AC
+
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
+
+format-full = <label-full>
+format-full-prefix = " "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+ramp-capacity-0-foreground = ${colors.urgent-color}
+ramp-capacity-foreground   = ${colors.foreground}
+bar-capacity-width = 10
+
+animation-charging-0 = ""
+animation-charging-1 = ""
+animation-charging-2 = ""
+animation-charging-3 = ""
+animation-charging-4 = ""
+
+animation-charging-framerate = 750
+
+[module/date]
+type = internal/date
+interval = 30
+label = %time%
+time =  %H:%M
+time-alt =  %Y-%m-%d
+
+[module/powermenu]
+type = custom/text
+content = 
+content-padding = 2
+content-background = ${colors.active-color} 
+content-foreground = ${colors.foreground}
+click-left = $HOME/.config/polybar/scripts/sysmenu.sh
