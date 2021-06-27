@@ -1,3 +1,5 @@
+// dmenu style layout with Nord colors
+
 configuration {
   display-run: "> ";
 }
@@ -18,13 +20,20 @@ window {
 
 horibox {
   orientation: horizontal;
-  children: [prompt, entry, listview];
+  children: [prompt, entry, textbox-separator, listview];
 }
 
 listview {
   layout: horizontal;
   spacing: 5px;
   lines: 100;
+}
+
+textbox-separator {
+  str: "|";
+  padding: 0px 2px;
+  text-color: #81a1c1;
+  expand: false;
 }
 
 entry {
