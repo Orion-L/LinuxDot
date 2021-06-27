@@ -1,0 +1,10 @@
+* {
+  font: 14px Hack;
+  background-color: #282828;
+  color: #ebdbb2;
+  min-height: 0;
+}
+
+#text:selected {
+  background-color: #458588;
+}

@@ -19,6 +19,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
+set $powermenu ~/.config/wofi/powermenu.sh
 
 ### Output configuration
 #
@@ -61,11 +62,12 @@ bindswitch --reload --locked lid:off output $laptop enable
 #
 # Example configuration:
 #
+set $lock swaylock -f -i $background -s fill
 exec swayidle -w \
-         timeout 300 'swaylock -f -i $background -s fill' \
+         timeout 300 '$lock' \
          timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          timeout 600 'systemctl suspend' \
-         before-sleep 'swaylock -f -i $background -s fill'
+         before-sleep '$lock'
 
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -94,7 +96,7 @@ exec swayidle -w \
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -111,6 +113,8 @@ exec swayidle -w \
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym $mod+Shift+q exec $powermenu
 #
 # Moving around:
 #
