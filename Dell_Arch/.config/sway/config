@@ -24,7 +24,7 @@ set $powermenu ~/.config/wofi/powermenu.sh
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-set $background /usr/share/backgrounds/background.jpg
+set $background ~/.config/background.jpg
 output * bg $background fill
 #
 # Example configuration:
