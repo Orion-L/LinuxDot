@@ -9,5 +9,5 @@ VirtualBox Workstation
 - **Icons:** [Font Awesome 5 Free](https://fontawesome.com/)
 - **Colour scheme**: [Nord](https://github.com/arcticicestudio/nord)
 
-![clean desktop](res/vm_arch_clean.png "clean desktop")
-![busy desktop](res/vm_arch_busy.png "busy desktop")
+![clean desktop](screens/clean.png "clean desktop")
+![busy desktop](screens/busy.png "busy desktop")
