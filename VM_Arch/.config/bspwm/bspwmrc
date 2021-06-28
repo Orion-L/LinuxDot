@@ -18,5 +18,5 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 sxhkd &
-feh --bg-fill /usr/share/pixmaps/background.jpg
-$HOME/.config/polybar/launch.sh
+feh --bg-fill "${HOME}"/.config/background.jpg
+"${HOME}"/.config/polybar/launch.sh
