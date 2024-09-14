@@ -1,0 +1,5 @@
+width = 100%
+height = 25
+orientation = horizontal
+location = top
+yoffset = -25

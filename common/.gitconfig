@@ -1,0 +1,9 @@
+[alias]
+    st = status
+    co = checkout
+    com = commit
+    f = fetch
+[pull]
+    ff = only
+[core]
+    editor = vim
