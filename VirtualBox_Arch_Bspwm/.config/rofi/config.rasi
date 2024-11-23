@@ -1,0 +1,50 @@
+// dmenu style layout with Nord colors
+
+configuration {
+  display-run: "> ";
+}
+
+* {
+  font: "hack 11";
+  background-color: #2e3440;
+  text-color: #d8dee9;
+}
+
+window {
+  anchor: north;
+  location: north;
+  width: 100%;
+  padding: 4px;
+  children: [ horibox ];
+}
+
+horibox {
+  orientation: horizontal;
+  children: [prompt, entry, textbox-separator, listview];
+}
+
+listview {
+  layout: horizontal;
+  spacing: 5px;
+  lines: 100;
+}
+
+textbox-separator {
+  str: "|";
+  padding: 0px 2px;
+  text-color: #81a1c1;
+  expand: false;
+}
+
+entry {
+  expand: false;
+  width: 10em;
+}
+
+element {
+  padding: 0px 2px;
+}
+
+element selected {
+  background-color: #88c0d0;
+}
