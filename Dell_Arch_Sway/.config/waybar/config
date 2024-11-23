@@ -1,0 +1,78 @@
+{
+  "height": 25,
+  "modules-left": ["cpu", "memory", "temperature", "disk", "disk#disk2"],
+  "modules-center": ["sway/workspaces"],
+  "modules-right": ["sway/mode", "idle_inhibitor", "pulseaudio", "backlight", "network", "battery", "clock", "tray"],
+
+  "cpu": {
+    "format": " {usage}%"
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": false
+  },
+  "disk": {
+    "format": "{path} {free}",
+    "path": "/"
+  },
+  "disk#disk2": {
+    "format": "{path} {free}",
+    "path": "/home"
+  },
+
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-bluetooth-muted": "",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pulsemixer --toggle-mute",
+    "on-click-right": "pavucontrol"
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [""]
+  },
+  "network": {
+    "format-wifi": " {signalStrength}%",
+    "format-ethernet": "",
+    "format-linked": "",
+    "format-disconnected": "",
+    "tooltip-format-wifi": "{essid} {ipaddr}/{cidr}",
+    "on-click": "swaymsg exec '$term -e nmtui'"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "clock": {
+    "format": "{:%H:%M %d/%m/%y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+  },
+}
