@@ -1,0 +1,14 @@
+[user]
+    name = Lorem Ipsum
+    email = lorem_ipsum@email.com
+[alias]
+    st = status
+    co = checkout
+    com = commit
+    f = fetch
+[pull]
+    ff = only
+[core]
+    editor = vim
+[init]
+	defaultBranch = master
