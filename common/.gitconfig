@@ -1,6 +1,7 @@
 [user]
     name = Lorem Ipsum
     email = lorem_ipsum@email.com
+    signingKey = XXXX
 [alias]
     st = status
     co = checkout
@@ -11,4 +12,8 @@
 [core]
     editor = vim
 [init]
-	defaultBranch = master
+    defaultBranch = master
+[commit]
+    gpgSign = true
+[tag]
+    gpgSign = true
